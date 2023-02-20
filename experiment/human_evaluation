@@ -1,0 +1,799 @@
+SELECT DISTINCT T1.bname FROM bank AS T1 JOIN loan AS T2 ON T1.branch_id  =  T2.branch_id
+
+[('bank', 1), ('loan', 3)]
+
+[('bname', 3)]
+
+['what', 'be', 'the', 'name', 'of', 'the', 'different', 'bank', 'that', 'have', 'provide', 'loan', '?']
+
+  0       0     0      0       0     0      0            1       0       0       0          3       0
+
+  0       0     0      0       0     0      0            0       0       0       0          0       0
+2 0 0
+0 1 0
+0 1 0
+
+
+SELECT investor_id ,  avg(amount_of_transaction) FROM TRANSACTIONS GROUP BY investor_id
+
+[('transaction', 4)]
+
+[('investor id', 10), ('amount of transaction', 13)]
+
+['show', 'the', 'average', 'amount', 'of', 'transaction', 'for', 'different', 'investor', '.']
+
+  0       0      0          0         0     4              0      0            0           0
+
+  0       0      0          13        13    13             0      0            10          0
+1 0 0
+2 0 0
+2 0 0
+
+
+SELECT T1.CountryName FROM COUNTRIES AS T1 JOIN CONTINENTS AS T2 ON T1.Continent  =  T2.ContId JOIN CAR_MAKERS AS T3 ON T1.CountryId  =  T3.Country WHERE T2.Continent  =  'europe' GROUP BY T1.CountryName HAVING count(*)  >=  3;
+
+[('continent', 1), ('country', 2), ('car maker', 3)]
+
+[('continent', 3), ('country name', 5)]
+
+['what', 'be', 'the', 'name', 'of', 'all', 'european', 'country', 'with', 'at', 'least', '3', 'manufacturer', '?']
+
+  0       0     0      0       0     0      0           2          0       0     0        0    0               0
+
+  0       0     0      5       0     0      0           5          0       0     0        0    0               0
+1 0 0
+2 0 0
+2 0 0
+
+
+SELECT song_name ,  releasedate FROM song ORDER BY releasedate DESC LIMIT 1
+
+[('song', 4)]
+
+[('releasedate', 21), ('song name', 14)]
+
+['what', 'be', 'the', 'name', 'of', 'the', 'song', 'that', 'be', 'release', 'most', 'recently', '?']
+
+  0       0     0      0       0     0      4       0       0     0          0       0           0
+
+  0       0     0      14      0     0      14      0       0     0          0       0           0
+1 0 0
+2 1 0
+2 1 0
+
+
+SELECT T1.title FROM course AS T1 JOIN prereq AS T2 ON T1.course_id  =  T2.course_id GROUP BY T2.course_id HAVING count(*)  =  2
+
+[('course', 3), ('prerequisite', 11)]
+
+[('title', 9), ('course id', 46)]
+
+['what', 'be', 'the', 'title', 'for', 'course', 'with', 'two', 'prerequisite', '?']
+
+  0       0     0      0        0      3         0       0      11              0
+
+  0       0     0      9        0      46        0       0      0               0
+2 0 0
+2 0 0
+3 0 0
+
+
+SELECT T1.name ,  count(*) FROM user_profiles AS T1 JOIN tweets AS T2 ON T1.uid  =  T2.uid GROUP BY T2.uid HAVING count(*)  >  1
+
+[('tweet', 2), ('user profile', 3)]
+
+[('name', 9), ('user id', 5)]
+
+['find', 'the', 'name', 'of', 'the', 'user', 'who', 'tweet', 'more', 'than', 'once', ',', 'and', 'number', 'of', 'tweet', 'tweet', 'by', 'they', '.']
+
+  0       0      0       0     0      3       0      2        0       0       0       0    0      0         0     2        2        0     0       0
+
+  0       0      9       0     0      5       0      0        0       0       0       0    0      0         0     0        0        0     0       0
+2 0 1
+2 0 0
+2 0 1
+
+
+SELECT T1.Title ,  T2.Publication_Date FROM book AS T1 JOIN publication AS T2 ON T1.Book_ID  =  T2.Book_ID
+
+[('publication', 1), ('book', 2)]
+
+[('publication date', 5), ('title', 8)]
+
+['show', 'the', 'title', 'and', 'publication', 'date', 'of', 'book', '.']
+
+  0       0      0        0      1              0       0     2       0
+
+  0       0      8        0      5              5       0     0       0
+2 0 0
+2 0 0
+3 0 0
+
+
+SELECT College FROM submission GROUP BY College ORDER BY COUNT(*) DESC LIMIT 1
+
+[('submission', 2)]
+
+[('college', 9)]
+
+['show', 'the', 'most', 'common', 'college', 'of', 'author', 'of', 'submission', '.']
+
+  0       0      0       0         0          0     0         0     2             0
+
+  0       0      0       0         9          0     0         0     0             0
+1 0 0
+1 0 0
+1 0 0
+
+
+SELECT customer_id ,  customer_name FROM customers WHERE customer_address LIKE "%WY%" AND payment_method_code != "Credit Card"
+
+[('customer', 5)]
+
+[('customer id', 12), ('payment method code', 13), ('customer name', 15), ('customer address', 16)]
+
+['what', 'be', 'the', 'id', 'and', 'name', 'of', 'customer', 'with', 'address', 'that', 'contain', 'wy', 'and', 'who', 'do', 'not', 'use', 'a', 'credit', 'card', 'for', 'payment', '?']
+
+  0       0     0      0     0      0       0     5           0       0          0       0          0     0      0      0     0      0      0    0         0       0      0          0
+
+  0       0     0      12    0      15      0     16          0       16         0       0          0     0      0      0     0      0      0    0         0       0      13         0
+1 0 0
+4 0 1
+4 0 1
+
+
+SELECT name FROM enzyme WHERE product != 'Heme'
+
+[('enzyme', 2)]
+
+[('product', 9), ('name', 7)]
+
+['what', 'be', 'the', 'name', 'of', 'enzyme', 'whose', 'product', 'be', 'not', '"', 'heme', '"', '?']
+
+  0       0     0      0       0     2         0        0          0     0      0    0       0    0
+
+  0       0     0      7       0     0         0        9          0     0      0    0       0    0
+1 0 0
+2 0 0
+2 0 0
+
+
+SELECT T2.name FROM Certificate AS T1 JOIN Aircraft AS T2 ON T2.aid  =  T1.aid WHERE T2.distance  >  5000 GROUP BY T1.aid ORDER BY count(*)  >=  5
+
+[('aircraft', 2), ('certificate', 4)]
+
+[('airline id', 17), ('name', 11), ('distance', 12)]
+
+['what', 'be', 'the', 'name', 'and', 'distance', 'of', 'every', 'aircraft', 'that', 'can', 'cover', 'a', 'distance', 'of', 'more', 'than', '5000', 'and', 'which', 'at', 'least', '5', 'people', 'can', 'fly', '?']
+
+  0       0     0      0       0      0           0     0        2           0       0      0        0    0           0     0       0       0       0      0        0     0        0    0         0      0      0
+
+  0       0     0      11      0      12          0     0        0           0       0      0        0    12          0     0       0       0       0      0        0     0        0    0         0      0      0
+1 0 0
+3 0 0
+3 0 0
+
+
+SELECT count(DISTINCT Industry) FROM Companies
+
+[('company', 2)]
+
+[('industry', 11)]
+
+['how', 'many', 'different', 'industry', 'be', 'the', 'company', 'in', '?']
+
+  0      0       0            0           0     0      2          0     0
+
+  0      0       0            11          0     0      0          0     0
+1 0 0
+1 0 0
+1 0 0
+
+
+SELECT name ,  salary FROM Employee WHERE eid  =  242518965
+
+[('employee', 3)]
+
+[('employee id', 13), ('name', 14), ('salary', 15)]
+
+['what', 'be', 'the', 'name', 'and', 'salary', 'for', 'employee', 'with', 'id', '242518965', '?']
+
+  0       0     0      0       0      0         0      3           0       0     0            0
+
+  0       0     0      14      0      15        0      13          0       13    0            0
+1 0 0
+3 0 1
+3 0 1
+
+
+SELECT count(*) FROM Documents_with_expenses
+
+[('document with expense', 6)]
+
+[]
+
+['how', 'many', 'document', 'have', 'expense', '?']
+
+  0      0       6           0       6          0
+
+  0      0       0           0       0          0
+1 0 1
+0 0 0
+0 0 0
+
+
+SELECT T1.compatible_since_year FROM accelerator_compatible_browser AS T1 JOIN browser AS T2 ON T1.browser_id  =  T2.id JOIN web_client_accelerator AS T3 ON T1.accelerator_id  =  T3.id WHERE T3.name  =  'CACHEbox' AND T2.name  =  'Internet Explorer'
+
+[('web client accelerator', 1), ('browser', 2), ('accelerator compatible browser', 3)]
+
+[('name', 3), ('compatible since year', 12), ('name', 8)]
+
+['when', 'do', 'the', 'web', 'accelerator', '"', 'cachebox', '"', 'and', 'browser', '"', 'internet', 'explorer', '"', 'become', 'compatible', '?']
+
+  0       0     0      1      3              0    0           0    0      3          0    0           0           0    0         3             0
+
+  0       0     0      0      0              0    0           0    0      0          0    0           0           0    0         12            0
+2 0 2
+1 0 0
+2 0 1
+
+
+SELECT DISTINCT cName FROM tryout ORDER BY cName
+
+[('tryout', 3)]
+
+[('college name', 10)]
+
+['find', 'the', 'name', 'of', 'different', 'college', 'involve', 'in', 'the', 'tryout', 'in', 'alphabetical', 'order', '.']
+
+  0       0      0       0     0            0          0          0     0      3         0     0               0        0
+
+  0       0      10      0     0            10         0          0     0      0         0     0               0        0
+1 0 0
+2 0 0
+2 0 0
+
+
+SELECT first_name FROM customer WHERE customer_id NOT IN( SELECT customer_id FROM rental WHERE rental_date  >  '2005-08-23 02:06:01' )
+
+[('rental', 14), ('customer', 6)]
+
+[('first name', 26), ('rental date', 70), ('customer id', 72), ('customer id', 24)]
+
+['return', 'the', 'first', 'name', 'of', 'customer', 'who', 'do', 'not', 'rent', 'a', 'film', 'after', 'the', 'date', '"', '2005-08-23', '02:06:01', '"', '.']
+
+  0         0      0        0       0     6           0      0     0      0       0    0       0        0      0       0    0             0           0    0
+
+  0         0      26       26      0     24          0      0     0      0       0    0       0        0      70      0    0             0           0    0
+1 1 0
+3 0 0
+3 1 0
+
+
+SELECT max(Account_details) FROM Accounts UNION SELECT Account_details FROM Accounts WHERE Account_details LIKE "%5%"
+
+[('account', 7)]
+
+[('account detail', 23)]
+
+['what', 'be', 'the', 'account', 'detail', 'with', 'the', 'large', 'value', 'or', 'with', 'value', 'have', 'char', '"', '5', '"', 'in', 'it', '?']
+
+  0       0     0      7          0         0       0      0        0        0     0       0        0       0       0    0    0    0     0     0
+
+  0       0     0      23         23        0       0      0        0        0     0       0        0       0       0    0    0    0     0     0
+1 0 0
+1 0 0
+1 0 0
+
+
+SELECT T2.Name ,  T1.Name FROM college AS T1 JOIN member AS T2 ON T1.College_ID  =  T2.College_ID
+
+[('college', 1), ('member', 2)]
+
+[('name', 3), ('name', 7)]
+
+['show', 'the', 'name', 'of', 'member', 'and', 'name', 'of', 'college', 'they', 'go', 'to', '.']
+
+  0       0      0       0     2         0      0       0     1          0       0     0     0
+
+  0       0      7       0     0         0      7       0     0          0       0     0     0
+2 0 0
+2 0 0
+3 0 0
+
+
+SELECT avg(long) FROM station WHERE id NOT IN (SELECT station_id FROM status GROUP BY station_id HAVING max(bikes_available)  >  10)
+
+[('station', 1), ('status', 2)]
+
+[('station id', 9), ('id', 2), ('longitude', 5), ('bike available', 10)]
+
+['what', 'be', 'the', 'average', 'longitude', 'of', 'station', 'that', 'never', 'have', 'bike', 'availability', 'more', 'than', '10', '?']
+
+  0       0     0      0          0            0     1          0       0        0       0       0               0       0       0     0
+
+  0       0     0      0          5            0     9          0       0        0       10      0               0       0       0     0
+1 0 0
+3 0 0
+3 0 0
+
+
+SELECT location_code FROM Document_locations GROUP BY location_code HAVING count(*)  >=  3
+
+[('document location', 7)]
+
+[('location code', 26)]
+
+['show', 'the', 'location', 'code', 'with', 'at', 'least', '3', 'document', '.']
+
+  0       0      7           0       0       0     0        0    7           0
+
+  0       0      26          26      0       0     0        0    0           0
+1 0 1
+1 0 0
+1 0 1
+
+
+SELECT count(*) FROM APPELLATIONS WHERE County  =  "Napa"
+
+[('appellation', 2)]
+
+[('county', 7)]
+
+['count', 'the', 'number', 'of', 'appelation', 'in', 'napa', 'county', '.']
+
+  0        0      0         0     0             0     0       0         0
+
+  0        0      0         0     0             0     0       7         0
+0 1 0
+1 0 0
+0 1 0
+
+
+SELECT T2.name FROM assignedto AS T1 JOIN scientists AS T2 ON T1.scientist  =  T2.ssn
+
+[('scientist', 1), ('assign to', 3)]
+
+[('name', 3)]
+
+['find', 'the', 'name', 'of', 'scientist', 'who', 'be', 'assign', 'to', 'some', 'project', '.']
+
+  0       0      0       0     1            0      0     3         3     0       0          0
+
+  0       0      3       0     0            0      0     0         0     0       0          0
+2 0 0
+1 0 0
+2 0 0
+
+
+SELECT investor_id ,  COUNT(*) FROM TRANSACTIONS GROUP BY investor_id
+
+[('transaction', 4)]
+
+[('investor id', 10)]
+
+['show', 'the', 'number', 'of', 'transaction', 'for', 'different', 'investor', '.']
+
+  0       0      0         0     4              0      0            0           0
+
+  0       0      0         0     0              0      0            10          0
+1 0 0
+1 0 0
+1 0 0
+
+
+SELECT TYPE FROM institution WHERE founded  >  1990 AND enrollment  >=  1000
+
+[('institution', 2)]
+
+[('found', 11), ('type', 12), ('enrollment', 13)]
+
+['show', 'the', 'institution', 'type', 'with', 'a', 'institution', 'found', 'after', '1990', 'and', 'a', 'institution', 'with', 'at', 'least', '1000', 'enrollment', '.']
+
+  0       0      2              0       0       0    2              0        0        0       0      0    2              0       0     0        0       0             0
+
+  0       0      0              12      0       0    0              11       0        0       0      0    0              0       0     0        0       13            0
+3 0 0
+3 0 0
+3 0 0
+
+
+SELECT email_address FROM Professionals WHERE state  =  'Hawaii' OR state  =  'Wisconsin'
+
+[('professional', 7)]
+
+[('email address', 42), ('state', 39)]
+
+['list', 'the', 'email', 'of', 'the', 'professional', 'who', 'live', 'in', 'the', 'state', 'of', 'hawaii', 'or', 'the', 'state', 'of', 'wisconsin', '.']
+
+  0       0      0        0     0      7               0      0       0     0      0        0     0         0     0      0        0     0            0
+
+  0       0      42       0     0      0               0      0       0     0      39       0     0         0     0      39       0     0            0
+1 0 0
+3 0 0
+3 0 0
+
+
+SELECT T2.dept_name ,  T2.dept_address FROM student AS T1 JOIN department AS T2 ON T1.dept_code  =  T2.dept_code GROUP BY T1.dept_code ORDER BY count(*) DESC LIMIT 1
+
+[('department', 3), ('student', 7)]
+
+[('department code', 42), ('department name', 13), ('department address', 16)]
+
+['what', 'be', 'the', 'name', 'and', 'address', 'of', 'the', 'department', 'with', 'the', 'most', 'student', '?']
+
+  0       0     0      0       0      0          0     0      3             0       0      0       7          0
+
+  0       0     0      13      0      16         0     0      16            0       0      0       0          0
+2 0 0
+3 0 0
+4 0 0
+
+
+SELECT count(*) FROM ROLES
+
+[('role', 4)]
+
+[]
+
+['how', 'many', 'role', 'be', 'there', '?']
+
+  0      0       4       0     0        0
+
+  0      0       0       0     0        0
+1 0 0
+0 0 0
+0 0 0
+
+
+SELECT T2.Name ,  T3.Festival_Name FROM nomination AS T1 JOIN artwork AS T2 ON T1.Artwork_ID  =  T2.Artwork_ID JOIN festival_detail AS T3 ON T1.Festival_ID  =  T3.Festival_ID
+
+[('festival detail', 1), ('artwork', 2), ('nomination', 3)]
+
+[('name', 10), ('festival name', 3)]
+
+['for', 'each', 'nomination', ',', 'show', 'the', 'name', 'of', 'the', 'artwork', 'and', 'name', 'of', 'the', 'festival', 'where', 'it', 'be', 'nominate', '.']
+
+  0      0       3             0    0       0      0       0     0      2          0      0       0     0      1           0        0     0     0           0
+
+  0      0       0             0    0       0      3       0     0      0          0      3       0     0      3           0        0     0     0           0
+3 0 0
+3 0 0
+3 0 0
+
+
+SELECT employee_name ,  role_code ,  date_of_birth FROM Employees WHERE employee_Name  =  'Armani'
+
+[('employee', 6)]
+
+[('role code', 20), ('employee name', 21), ('date of birth', 23)]
+
+['show', 'the', 'name', ',', 'role', 'code', ',', 'and', 'date', 'of', 'birth', 'for', 'the', 'employee', 'with', 'name', '"', 'armani', '"', '.']
+
+  0       0      0       0    0       0       0    0      0       0     0        0      0      6           0       0       0    0         0    0
+
+  0       0      21      0    20      20      0    0      23      23    23       0      0      21          0       21      0    0         0    0
+1 0 0
+3 0 1
+3 0 1
+
+
+SELECT student_id FROM student_course_attendance
+
+[('student course attendance', 7)]
+
+[('student id', 31)]
+
+['list', 'the', 'id', 'of', 'student', 'who', 'attend', 'some', 'course', '?']
+
+  0       0      0     0     7          0      0         0       7         0
+
+  0       0      31    0     31         0      0         0       0         0
+0 1 1
+1 0 0
+0 1 1
+
+
+SELECT count(*) ,  dept_code FROM student GROUP BY dept_code
+
+[('student', 7)]
+
+[('department code', 42)]
+
+['find', 'the', 'number', 'of', 'student', 'for', 'each', 'department', '.']
+
+  0       0      0         0     7          0      0       0             0
+
+  0       0      0         0     0          0      0       42            0
+1 0 0
+1 0 0
+1 0 0
+
+
+SELECT T1.donator_name FROM endowment AS T1 JOIN school AS T2 ON T1.school_id  =  T2.school_id WHERE T2.school_name  =  'Glenn' INTERSECT SELECT T1.donator_name FROM endowment AS T1 JOIN school AS T2 ON T1.school_id  =  T2.school_id WHERE T2.school_name  =  'Triton'
+
+[('school', 1), ('endowment', 3)]
+
+[('donator name', 19), ('school name', 3)]
+
+['show', 'the', 'name', 'of', 'donor', 'who', 'donate', 'to', 'both', 'school', '"', 'glenn', '"', 'and', '"', 'triton', '.', '"']
+
+  0       0      0       0     0        0      0         0     0       1         0    0        0    0      0    0         0    0
+
+  0       0      3       0     0        0      0         0     0       3         0    0        0    0      0    0         0    0
+1 1 0
+2 0 0
+2 2 0
+
+
+SELECT T1.AirportCode FROM AIRPORTS AS T1 JOIN FLIGHTS AS T2 ON T1.AirportCode  =  T2.DestAirport OR T1.AirportCode  =  T2.SourceAirport GROUP BY T1.AirportCode ORDER BY count(*) LIMIT 1
+
+[('airport', 2), ('flight', 3)]
+
+[('airport code', 7)]
+
+['what', 'be', 'the', 'code', 'of', 'airport', 'that', 'have', 'few', 'number', 'of', 'flight', '?']
+
+  0       0     0      0       0     2          0       0       0      0         0     3         0
+
+  0       0     0      7       0     7          0       0       0      0         0     0         0
+2 0 0
+1 0 0
+2 0 0
+
+
+SELECT name ,  salary FROM Employee WHERE eid  =  242518965
+
+[('employee', 3)]
+
+[('employee id', 13), ('name', 14), ('salary', 15)]
+
+['what', 'be', 'the', 'name', 'and', 'salary', 'of', 'the', 'employee', 'with', 'the', 'id', '242518965', '?']
+
+  0       0     0      0       0      0         0     0      3           0       0      0     0            0
+
+  0       0     0      14      0      15        0     0      13          0       0      13    0            0
+1 0 0
+3 0 0
+3 0 0
+
+
+SELECT title ,  director FROM movie WHERE YEAR  <=  2000 ORDER BY gross_worldwide DESC LIMIT 1
+
+[('movie', 2)]
+
+[('title', 10), ('year', 11), ('director', 12), ('gross worldwide', 14)]
+
+['return', 'the', 'title', 'and', 'director', 'of', 'the', 'movie', 'release', 'in', 'the', 'year', '2000', 'or', 'early', 'that', 'have', 'the', 'high', 'worldwide', 'gross', '.']
+
+  0         0      0        0      0           0     0      2        0          0     0      0       0       0     0        0       0       0      0       0            0        0
+
+  0         0      10       0      12          0     0      0        0          0     0      11      0       0     0        0       0       0      0       14           14       0
+1 0 0
+4 0 0
+4 0 0
+
+
+SELECT Name FROM scientists WHERE ssn NOT IN (SELECT scientist FROM AssignedTo)
+
+[('scientist', 1), ('assign to', 3)]
+
+[('ssn', 2), ('name', 3), ('scientist', 7)]
+
+['find', 'the', 'name', 'of', 'scientist', 'who', 'be', 'not', 'assign', 'to', 'any', 'project', '.']
+
+  0       0      0       0     1            0      0     0      3         3     0      0          0
+
+  0       0      3       0     7            0      0     0      0         0     0      0          0
+2 0 0
+2 0 0
+2 0 0
+
+
+SELECT price_range FROM HOTELS WHERE star_rating_code  =  "5"
+
+[('hotel', 6)]
+
+[('price range', 17), ('star rating code', 15)]
+
+['what', 'be', 'the', 'price', 'range', 'of', 'five', 'star', 'hotel', '?']
+
+  0       0     0      0        0        0     0       0       6        0
+
+  0       0     0      17       17       0     0       15      0        0
+1 0 0
+2 0 0
+2 0 0
+
+
+SELECT min(T2.HS) ,   T1.pPos FROM tryout AS T1 JOIN player AS T2 ON T1.pID  =  T2.pID GROUP BY T1.pPos
+
+[('player', 2), ('tryout', 3)]
+
+[('player position', 11), ('training hour', 8)]
+
+['for', 'each', 'position', ',', 'what', 'be', 'the', 'minimum', 'time', 'student', 'spend', 'practice', '?']
+
+  0      0       0           0    0       0     0      0          0       0          0        0           0
+
+  0      0       11          0    0       0     0      0          0       0          0        0           0
+0 0 0
+0 1 0
+0 0 0
+
+
+SELECT date ,  zip_code FROM weather WHERE min_dew_point_f  <  (SELECT min(min_dew_point_f) FROM weather WHERE zip_code  =  94107)
+
+[('weather', 4)]
+
+[('minute dew point for', 30), ('zip code', 47), ('date', 24)]
+
+['on', 'which', 'day', 'and', 'in', 'which', 'zip', 'code', 'be', 'the', 'minute', 'dew', 'point', 'low', 'than', 'any', 'day', 'in', 'zip', 'code', '94107', '?']
+
+  0     0        0      0      0     0        0      0       0     0      0         0      0        0      0       0      0      0     0      0       0        0
+
+  0     0        0      0      0     0        47     47      0     0      30        30     30       0      0       0      0      0     47     47      0        0
+0 0 0
+2 0 0
+0 0 0
+
+
+SELECT first_name ,  middle_name ,  last_name FROM Staff;
+
+[('staff', 2)]
+
+[('first name', 11), ('middle name', 12), ('last name', 13)]
+
+['list', 'the', 'first', 'name', 'middle', 'name', 'and', 'last', 'name', 'of', 'all', 'staff', '.']
+
+  0       0      0        0       0         0       0      0       0       0     0      2        0
+
+  0       0      11       11      12        12      0      13      13      0     0      0        0
+1 0 0
+3 0 0
+3 0 0
+
+
+SELECT count(*) ,  dept_name FROM student GROUP BY dept_name
+
+[('student', 7)]
+
+[('department name', 30)]
+
+['find', 'the', 'total', 'number', 'of', 'student', 'in', 'each', 'department', '.']
+
+  0       0      0        0         0     7          0     0       0             0
+
+  0       0      0        0         0     0          0     0       30            0
+1 0 0
+1 0 0
+1 0 0
+
+
+SELECT first_name FROM Teachers WHERE email_address LIKE '%man%'
+
+[('teacher', 6)]
+
+[('email address', 34), ('first name', 29)]
+
+['find', 'the', 'first', 'name', 'of', 'teacher', 'whose', 'email', 'address', 'contain', 'the', 'word', '"', 'man', '"', '.']
+
+  0       0      0        0       0     6          0        0        0          0          0      0       0    0      0    0
+
+  0       0      29       29      0     0          0        34       34         0          0      0       0    0      0    0
+1 0 0
+2 0 0
+2 0 0
+
+
+SELECT DISTINCT t3.name FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN inst AS t3 ON t2.instid  =  t3.instid WHERE t1.fname  =  "Matthias" AND t1.lname  =  "Blume"
+
+[('institution', 1), ('author', 2), ('authorship count', 4)]
+
+[('name', 3), ('last name', 6), ('first name', 7)]
+
+['which', 'institution', 'be', 'the', 'author', '"', 'matthias', 'blume', '"', 'belong', 'to', '?', 'give', 'i', 'the', 'name', 'of', 'the', 'institution', '.']
+
+  0        1              0     0      2         0    0           0        0    0         0     0    0       0    0      0       0     0      1              0
+
+  0        0              0     0      0         0    0           0        0    0         0     0    0       0    0      7       0     0      0              0
+2 0 0
+1 0 0
+2 0 0
+
+
+SELECT DISTINCT T1.first_name ,  T1.last_name FROM Professionals AS T1 JOIN Treatments AS T2 WHERE cost_of_treatment  <  ( SELECT avg(cost_of_treatment) FROM Treatments )
+
+[('professional', 7), ('treatment', 8)]
+
+[('last name', 41), ('cost of treatment', 50), ('first name', 36)]
+
+['which', 'professional', 'have', 'operate', 'a', 'treatment', 'that', 'cost', 'less', 'than', 'the', 'average', '?', 'give', 'i', 'theor', 'first', 'name', 'and', 'last', 'name', '.']
+
+  0        7               0       0          0    8            0       0       0       0       0      0          0    0       0    0        0        0       0      0       0       0
+
+  0        0               0       0          0    50           0       50      0       0       0      0          0    0       0    0        36       36      0      41      41      0
+2 0 0
+3 0 1
+4 0 1
+
+
+SELECT count(*) ,  T3.product_id FROM orders AS T1 JOIN order_items AS T2 JOIN products AS T3 ON T1.order_id = T2.order_id AND T2.product_id = T3.product_id GROUP BY T3.product_id
+
+[('order', 3), ('product', 4), ('order item', 5)]
+
+[('product id', 13)]
+
+['for', 'each', 'product', ',', 'return', 'its', 'id', 'and', 'the', 'number', 'of', 'time', 'it', 'be', 'order', '.']
+
+  0      0       4          0    0         0      0     0      0      0         0     0       0     0     5        0
+
+  0      0       13         0    0         0      13    0      0      0         0     0       0     0     0        0
+2 0 0
+1 0 0
+2 0 0
+
+
+SELECT T2.Author FROM acceptance AS T1 JOIN submission AS T2 ON T1.Submission_ID  =  T2.Submission_ID GROUP BY T2.Author HAVING COUNT(DISTINCT T1.workshop_id)  >  1
+
+[('submission', 2), ('acceptance', 3)]
+
+[('workshop id', 11), ('author', 8)]
+
+['show', 'the', 'author', 'who', 'have', 'submission', 'to', 'more', 'than', 'one', 'workshop', '.']
+
+  0       0      0         0      0       2             0     0       0       0      0           0
+
+  0       0      8         0      0       0             0     0       0       0      11          0
+1 0 0
+2 0 0
+2 0 0
+
+
+SELECT LOCATION FROM station GROUP BY LOCATION ORDER BY count(*) DESC LIMIT 1
+
+[('station', 1)]
+
+[('location', 7)]
+
+['show', 'the', 'location', 'with', 'most', 'number', 'of', 'train', 'station', '.']
+
+  0       0      0           0       0       0         0     0        1          0
+
+  0       0      7           0       0       0         0     0        0          0
+1 0 0
+1 0 0
+1 0 0
+
+
+SELECT T2.Song FROM artist AS T1 JOIN volume AS T2 ON T1.Artist_ID  =  T2.Artist_ID WHERE T1.age  >=  32
+
+[('artist', 1), ('volume', 2)]
+
+[('song', 11), ('age', 4)]
+
+['what', 'be', 'the', 'song', 'in', 'volume', 'associate', 'with', 'the', 'artist', 'aged', '32', 'or', 'old', '?']
+
+  0       0     0      0       0     2         0            0       0      1         0       0     0     0      0
+
+  0       0     0      11      0     0         0            0       0      0         0       0     0     0      0
+2 0 0
+1 1 0
+2 1 0
+
+
+SELECT T2.region_name FROM affected_region AS T1 JOIN region AS T2 ON T1.region_id  =  T2.region_id JOIN storm AS T3 ON T1.storm_id  =  T3.storm_id ORDER BY T3.Number_Deaths DESC LIMIT 1
+
+[('storm', 1), ('region', 2), ('affect region', 3)]
+
+[('region name', 10), ('number death', 7)]
+
+['what', 'be', 'the', 'name', 'of', 'region', 'that', 'be', 'affect', 'by', 'the', 'storm', 'in', 'which', 'the', 'most', 'people', 'die', '?']
+
+  0       0     0      0       0     3         0       0     3         0     0      1        0     0        0      0       0         0      0
+
+  0       0     0      10      0     10        0       0     0         0     0      0        0     0        0      0       0         0      0
+2 0 1
+1 0 0
+1 1 1
+

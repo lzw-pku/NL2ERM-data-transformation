@@ -1,0 +1,1 @@
+GRAMMAR_FILEPATH = '../asdl/sql/grammar/sql_asdl_v2.txt'

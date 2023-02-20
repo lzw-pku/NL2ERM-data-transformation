@@ -1,0 +1,84 @@
+Bank have Customer.
+Banks are identified by a name, code, address of main office.
+Banks have branches.
+Branches are identified by a branch number, branch name, address.
+Customers are identified by name, custome id, phone number, address.
+Customer can have one or more accounts.
+Accounts are identified by account number, account type, balance.
+Customer can avail loans.
+Loans are identified by loan id, loan type and amount.
+#Account and loans are related to bank’s branch.
+# 5 entity; 4 or 6 relationship
+#             Bank(3)                                       Customer(4)
+# name; code; address of main office        name; customer id; phone number; address
+#             Branch
+#  branch number; branch name; address
+#             Account(3)                                   Loan(3)
+#account number; account type; balance         loan id; loan type; amount
+# Bank <--> Customer;  Bank <--> Branch  Customer <--> Account  Customer <--> Loan
+A library contains libraries, books, authors and patrons.
+Libraries are described by library name and location.
+Books are described by title and pages.
+Authors are described by author name.
+Patrons are described by patron name and patron weight.
+A library can hold many books.
+The book can appear in many libraies.
+#Entity:4  relationship:1
+#       Library                    Book
+# library name; location       title; page
+#       Author                    Patron
+#      author name           patron name; patron weight
+#Library <--> Book
+The university keeps track of each student’s name, student number, Social Security number, current address and phone number, permanent address and phone number, birth date, sex, class (freshman, sophomore, ..., graduate), major department, minor department (if any), and degree program (B.A., B.S., ..., Ph.D.).
+Some user applications need to refer to the city, state, and ZIP Code of the student’s permanent address and to the student’s last name.
+Both Social Security number and student number have unique values for each student.
+Each department is described by a name, department code, office number, office phone number, and college.
+Both name and code have unique values for each department.
+Each course has a course name, description, course number, number of semester hours, level, and offering department.
+The value of the course number is unique for each course.
+Each section has an instructor, semester, year, course, and section number.
+The section number distinguishes sections of the same course that are taught during the same semester/year; its values are 1, 2, 3, ..., up to the number of sections taught during each semester.
+A grade report has a student, section, letter grade, and numeric grade (0, 1, 2, 3, or 4).
+# Entity:5  Relationship:
+# Student: name; number; social security number; current address; phone number;
+#          permanent address; birth date; sex; class; major department;
+#          minor department; degree program
+# Department: name; code; office number; phone number; college;
+# Course: name; description; number; semester hours; level; offering department
+# Section: instructor; semester; year; course; number
+# Grade report: student; section; letter grade; numeric grade
+
+The mail order company has employees, each identified by a unique employee number, first and last name, and Zip Code.
+Each customer of the company is identified by a unique customer number, first and last name, and Zip Code.
+Each part sold by the company is identified by a unique part number, a part name, price, and quantity in stock.
+Each order placed by a customer is taken by an employee and is given a unique number.
+Each order contains specified quantities of one or more parts.
+Each order has a date of receipt as well as an expected ship date.
+The actual ship date is also recorded.
+
+Each movie is identified by title and year of release.
+Each movie has a length in minutes.
+Each movie has a production company, and each is classified under one or more genres (such as horror, action, drama, and so forth).
+Each movie has one or more directors and one or more actors appear in it.
+Each movie also has a plot outline.
+Finally, each movie has zero or more quotable quotes, each of which is spoken by a particular actor appearing in the movie.
+Actors are identified by name and date of birth and appear in one or more movies.
+Each actor has a role in the movie.
+Directors are also identified by name and date of birth and direct one or more movies.
+It is possible for a director to act in a movie (including one that he or she may also direct).
+Production companies are identified by name and each has an address.
+A production company produces one or more movies.
+
+Authors of papers are uniquely identified by e-mail id.
+First and last names are also recorded.
+Each paper is assigned a unique identifier by the system and is described by a title, abstract, and the name of the electronic file containing the paper.
+A paper may have multiple authors, but one of the authors is designated as the contact author.
+Reviewers of papers are uniquely identified by e-mail address.
+Each reviewer’s first name, last name, phone number, affiliation, and topics of interest are also recorded.
+
+Each paper is assigned between two and four reviewers.
+A reviewer rates each paper assigned to him or her on a scale of 1 to 10 in four categories: technical merit, readability, originality, and relevance to the conference.
+Finally, each reviewer provides an overall recommendation regarding each paper.
+Each review contains two types of written comments: one to be seen by the review committee only and the other as feedback to the author(s).
+
+
